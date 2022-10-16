@@ -1,14 +1,13 @@
 float hunger = 450;
-int posX = 50;
-int posY = 50;
-
+int posX = int(random(width - 50));
+int posY = int(random(height - 50));
 
 void setup() {
   size(500, 500);
 }
 
 void draw() {
-  background(0);
+  background(0,0,50);
 
   strokeWeight(10);
   stroke(255);
@@ -37,12 +36,22 @@ void food() {
 }
 
 void mousePressed() {
-  if (mouseButton == LEFT && mouseX > posX - 25 && mouseY < posX + 25 && mouseY > posY - 25 && mouseY < posY + 25) {
-    if (hunger < 450) {
+  if (mouseButton == LEFT && colition(posX, posY) == true) {
+    if (hunger < 420) {
       hunger += 50;
     }
 
-    posX = int(random(width));
-    posY = int(random(height));
+    posX = int(random(width - 50));
+    posY = int(random(height - 50));
+  } 
+}
+
+boolean colition(int valX, int valY){
+  boolean monkaW = false;
+  
+  if(mouseX < valX + 25 && mouseX > valX - 25 && mouseY < valY + 25 && mouseY > valY -25){
+    monkaW = true;
   }
+  
+  return monkaW;
 }
