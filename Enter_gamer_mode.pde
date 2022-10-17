@@ -25,7 +25,7 @@ void draw() {
   line(50, 450, hunger, 450);
 
   if (hunger > 50) {
-    hunger -= 1;
+    hunger -= 1.4;
   } else if (hunger <= 50) {
     textSize(50);
     fill(255, 0, 0);
